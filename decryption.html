@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>文件在线解密 - GMencryption</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
+  <link rel="shortcut icon" href="/img/logo.png" >
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-white navbar-light border border-top-0 border-right-0 border-left-0 nav-higher">
+  <div class="container">
+    <a class="navbar-brand" href="/index.html">
+      <img src="/img/text_logo.svg" alt="logo" class="logo-wider">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/index.html">文件加密</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/decryption.html">文件解密</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">数据库加密</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">数据库解密</a>
+        </li>
+        <span class="navbar-text" id="login_span"></span>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">登录</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">注册</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+
+<div class="container text-center">
+  <br>
+  <h2 class="font-weight-bold">文件在线解密</h2>
+  <h5>在线安全解密各类敏感文件</h5>
+  <br><br>
+  <div class="card text-white card-background">
+    <div class="card-body card-body-background">
+      <img src="/img/decrypt_file.png" class="small-img">
+      <h4>将文件拖拉至此处</h4>
+      <h4 class="p-underline"><a href="#" class="text-light" id="choose-file">选择文件</a></h4>
+
+      <div class="col-lg-6 m-auto" id="div-passphrase" style="display: none;">
+        <form id="uploadForm" enctype="multipart/form-data">
+          <div class="input-group">
+            <input type="text" class="form-control" name="enc-or-dec" value="dec" style="display: none;" />
+            <input type="text" class="form-control" placeholder="请输入解密密码" name="passphrase" id="passphrase"/>
+            <input type="file" name="file" id="upload_file" style="display: none;" />
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="btn-encrypt">
+                开始解密
+              </button>
+            </span>
+          </div><!-- /input-group -->
+        </form>
+        <br>
+      </div><!-- /.col-lg-6 -->
+      <div class="col-lg-6 m-auto">
+        <div class="alert alert-success" id="div-success" style="display: none;">
+          <a href="#" download="default.txt" id="download"><strong>解密成功!</strong> 点击此处下载</a>
+        </div>
+        <div class="alert alert-warning" id="div-warning" style="display: none;">
+          <strong>注意!</strong> 密码不能为空
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <br><br>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><img src="/img/bulb.svg" /></p>
+      <h5 class="font-weight-bold text-center">如何加密我的文件</h5>
+      <p>首先您要拖放或直接点击选择文件按钮以上传需要加密的文件。文件会在线上转换，完成后您就能下载文件。</p>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><img src="/img/trophy.svg" /></p>
+      <h5 class="font-weight-bold text-center">什么文件能够被加密</h5>
+      <p class="text-center">PDF、Word、PPT、Excel、txt等文件均可进行加密。</p>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><img src="/img/thumb.svg" /></p>
+      <h5 class="font-weight-bold text-center">最高效率的加密</h5>
+      <p class="text-center">加密过程极为复杂，基于国密SM4加密算法，通过OpenSSL实现，不会对您的文件造成任何损坏。</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><img src="/img/lock.svg" /></p>
+      <h5 class="font-weight-bold text-center">安全性是首要考量</h5>
+      <p class="text-center">所有文件会在转换后一小时内从我们的服务器里删除。</p>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><img src="/img/knife.svg" /></p>
+      <h5 class="font-weight-bold text-center">适用于所有操作系统</h5>
+      <p class="text-center">加密服务适用于所有电脑 – 您的操作系统不会影响加密效果。</p>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><img src="/img/cloud.svg" /></p>
+      <h5 class="font-weight-bold text-center">云端服务</h5>
+      <p class="text-center">云端服务器器将会对文件进行处理，无须下载任何软件。</p>
+    </div>
+  </div>
+  <br><br><br>
+
+  <nav class="navbar navbar-expand-sm bg-white">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="#">关于</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="#">帮助</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="#">项目开源</a>
+      </li>
+    </ul>
+  </nav>
+  <p class="text-muted copyright-pad">Copyright © 2019 GMencryption SZL</p>
+  <br><br>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/encryption.js"></script>
+</body>
+</html>
