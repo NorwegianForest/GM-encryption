@@ -33,7 +33,7 @@ $(function () {
             var formData = new FormData($('#uploadForm')[0]);
             $.ajax({
                 type: 'post',
-                url: "/upload_file.php",
+                url: "upload_file.php",
                 data: formData,
                 cache: false,
                 processData: false,

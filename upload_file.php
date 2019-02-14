@@ -14,12 +14,12 @@
         move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $original_filename);
         if ($_POST["enc-or-dec"] == "enc") {
             $encrypted_filepath = "enc/";
-            $download_url = "/enc/";
+            $download_url = "enc/";
             $command = "openssl sm4 -e -in " . $original_filepath . $original_filename . " -out " . $encrypted_filepath . $process_filename . " -k " . $_POST["passphrase"];
             $download_name = "e_" . $_FILES["file"]["name"];
         } else if ($_POST["enc-or-dec"] == "dec") {
             $decrypted_filepath = "dec/";
-            $download_url = "/dec/";
+            $download_url = "dec/";
             $command = "openssl sm4 -d -in " . $original_filepath . $original_filename . " -out " . $decrypted_filepath . $process_filename . " -k " . $_POST["passphrase"];
             $download_name = "d_" . $_FILES["file"]["name"];
         }
