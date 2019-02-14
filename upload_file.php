@@ -16,12 +16,12 @@
             $encrypted_filepath = "enc/";
             $download_url = "/enc/";
             $command = "openssl sm4 -e -in " . $original_filepath . $original_filename . " -out " . $encrypted_filepath . $process_filename . " -k " . $_POST["passphrase"];
-            $download_name = "ENC_" . $_FILES["file"]["name"];
+            $download_name = "e_" . $_FILES["file"]["name"];
         } else if ($_POST["enc-or-dec"] == "dec") {
             $decrypted_filepath = "dec/";
             $download_url = "/dec/";
             $command = "openssl sm4 -d -in " . $original_filepath . $original_filename . " -out " . $decrypted_filepath . $process_filename . " -k " . $_POST["passphrase"];
-            $download_name = "DEC_" . $_FILES["file"]["name"];
+            $download_name = "d_" . $_FILES["file"]["name"];
         }
         exec($command);
         $response = array('name' => $download_name, 'url' => $download_url . $process_filename);
